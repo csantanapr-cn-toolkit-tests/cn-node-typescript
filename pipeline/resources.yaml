@@ -1,0 +1,22 @@
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: nodejs-typescript-git
+spec:
+  type: git
+  params:
+    - name: url
+      value: https://github.com/csantanapr-cn-toolkit-tests/cn-node-typescript
+    - name: revision
+      value: master
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: nodejs-typescript-image
+spec:
+  type: image
+  params:
+    - name: url
+      value: image-registry.openshift-image-registry.svc:5000/dev-cs1/template-node-typescript:latest
